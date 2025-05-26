@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('bg.png') no-repeat center center / cover;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      padding-left: 80px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .get-started-btn,
+    .about-us-btn {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+      color: black;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .get-started-btn:hover,
+    .about-us-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 242, 254, 0.5);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 750px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #00c9ff;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 15px;
+    }
+
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+
+    .profile-info {
+      font-size: 1rem;
+    }
+
+    .description {
+      margin-top: 10px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="get-started-btn" onclick="location.href='auth.php'">Get Started</button>
+    <button class="about-us-btn" onclick="document.getElementById('aboutModal').style.display='block'">About Us</button>
+  </div>
+
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('aboutModal').style.display='none'">&times;</span>
+
+      <div class="profile">
+        <img src="MICHAEL.PNG" alt="Michael Josh S. Tropicales" />
+        <div class="profile-info">
+          <strong>Name:</strong> Michael Josh S. Tropicales<br/>
+          <strong>Program:</strong> BSIT Major in Business Analytics<br/>
+          <strong>Year & Section:</strong> 3B - G1<br/>
+          <strong>Role:</strong> Front-End Developer
+        </div>
+      </div>
+
+      <div class="profile">
+        <img src="david.png" alt="David I. Alvarez" />
+        <div class="profile-info">
+          <strong>Name:</strong> David I. Alvarez<br/>
+          <strong>Program:</strong> BSIT Major in Business Analytics<br/>
+          <strong>Year & Section:</strong> 3B - G1<br/>
+          <strong>Role:</strong> Back-End Developer
+        </div>
+      </div>
+
+      <div class="description">
+        We are third-year BSIT students from section B Group 1, passionate about technology and business analytics.
+        This Student Management System was created as part of our academic requirements to demonstrate our skills
+        in handling data using XML, enhancing user interfaces, and organizing student information in a functional and accessible way.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onclick = function(event) {
+      const modal = document.getElementById('aboutModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
